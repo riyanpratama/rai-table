@@ -14,5 +14,3 @@ tr, th, td {
 table{
 	margin-top: 10px;
 }
-<button type='button' class='btn btn-danger pull-right' id='checkAll'>Check All</button>
-<td width='10%'><input class='checkbox' type='checkbox' value='".$row['id']."'></td>

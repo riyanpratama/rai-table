@@ -20,14 +20,22 @@ include 'connect.php';
 
 function showTable($result) {
 	echo "<table class='table table-hover table-condensed'>";
-	echo "<tr><th width='10%'>ID Barang</th><th>Nama Barang</th><th>Detail Barang</th><th>Lokasi Barang</th><th width='10%'><input type='checkbox' id='checkAll'></th></tr>";
+	echo "<tr class='active'><th width='10%'>ID Barang</th><th>Nama Barang</th><th>Detail Barang</th><th>Lokasi Barang</th><th width='10%'><input type='checkbox' id='checkAll'></th></tr>";
 
-	// tabel
-	while($row = mysqli_fetch_array($result)) {
-	  echo "<tr><td>".$row['id']."</td><td>".$row['nama']."</td><td>".$row['desc']."</td><td>".$row['location']."</td><td class='checkbox' width='10%'><input type='checkbox' id='checkAll'></td></tr>";
+	// cek data ada atau tidak
+	if(mysqli_num_rows($result)>0){
+		while($row = mysqli_fetch_array($result)) {
+			echo "<tr><td>".$row['id']."</td><td>".$row['nama']."</td><td>".$row['desc']."</td><td>".$row['location']."</td><td width='10%'><input class='checkbox' type='checkbox' id='checkAll'></td></tr>";
+		}
+	} else {
+		echo "<tr class='danger'><td colspan='5'><i>Data Not Found</i></td></tr>";
 	}
 
 	echo "</table>";
+}
+
+function delete(){
+	// delete
 }
 
 ?>
